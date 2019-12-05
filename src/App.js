@@ -70,12 +70,26 @@ class App extends Component {
     }
   }
 
+  cleaningBoard() {
+    for (let i = 0; i < document.getElementsByClassName("square").length; i++) {
+      document.getElementsByClassName("square")[i].innerHTML = "";
+    }
+
+    this.setState({
+      turn: "X",
+      gameOver: false,
+      board: Array(9).fill(""),
+      totalMoves: 0,
+      winner: ""
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="game">
           <div className="head">Tic-Tac-Toe Game</div>
-          <div className="winner"> {this.state.winner}</div>
+          {this.state.gameOver ? <div className="winner"> Winner : {this.state.winner}</div> : ""}
           <div
             className="board"
             onClick={e => {
@@ -92,6 +106,18 @@ class App extends Component {
             <div className="square" data-square="7"></div>
             <div className="square" data-square="8"></div>
           </div>
+          {this.state.gameOver ? (
+            <div
+              className="clean-board"
+              onClick={() => {
+                this.cleaningBoard();
+              }}
+            >
+              PLAY AGAIN
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );

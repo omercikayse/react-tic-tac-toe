@@ -22,7 +22,6 @@
 .winner {
   font-size: 25px;
   padding: 10px;
-  margin: 27px;
   color: blueviolet;
   font-style: italic;
   transform: translateX(0px);
@@ -56,4 +55,20 @@
 
 .square:hover {
   background: #eee;
+}
+
+.clean-board {
+  padding: 20px 40px;
+  margin: 30px 0;
+  border-radius: 50%;
+  border: none;
+  background: coral;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: firebrick;
+}
+
+.clean-board:hover {
+  background: #eaae98;
 }
